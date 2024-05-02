@@ -3,9 +3,8 @@ from tkinter import messagebox
 from converter2 import encrypt
 from subprocess import Popen
 
-
 master = Tk()
-master.geometry("700x350")
+master.geometry("1000x700")
 master.title('MORSE CODE')
 master.configure(bg='#DAD2D8')
 
@@ -15,7 +14,6 @@ def open_decode():
 def start_decode():
     global p
     p = Popen(['python.exe', 'eye_blink.py'])
-
 
 def stop_decode():
     p.kill()
@@ -45,9 +43,6 @@ def popup_window():
     create_circle_button(new_window, "START",start_decode , 4, 0)
     create_circle_button(new_window, "STOP",stop_decode , 4, 1)
 
-
-
-
 def openNewWindow():
     def printInput():
         inp = inputText.get(1.0, "end-1c")
@@ -59,19 +54,17 @@ def openNewWindow():
         with open(file_name, 'w') as file:
             file.write(encrypt(inp.upper()))
 
-        morseSolnLabel.config(text="created file")
+        morseSolnLabel.config(text="File Generated")
 
     frame = Toplevel()
     frame.title('ENCODE')
     frame.configure(bg='#DAD2D8')
-    frame.geometry("700x500")
+    frame.geometry("1000x700")
     inputText = Text(frame, height=2, width=50, relief="solid", bd=2, borderwidth=2, highlightbackground="#ffffff", highlightcolor="#ffffff", highlightthickness=1, font=("Arial", 16), spacing1=5)
     inputText.pack(pady=50)
 
     printButton = Button(frame, text="GENERATE MORSE CODE", command=printInput, font=("Arial", 13), foreground='#ffffff', bg='#17BEBB', relief='raised', bd=3, width=30, activebackground='#17BEBB', activeforeground='#ffffff')
     printButton.pack(pady=30)
-
-
 
     morseSolnLabel = Label(frame, text="", font=("Arial", 50, 'bold'), fg='#000000', bg='#ffffff', height=-6, width=20)
     morseSolnLabel.pack()
