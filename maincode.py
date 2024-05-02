@@ -14,7 +14,7 @@ def open_decode():
 
 def start_decode():
     global p
-    p = Popen(['C:\\Users\\Ahmed\\Desktop\\Sem 6\\DIP\\project\\MorseCode-Recognition-OpenCV\\venv\\Scripts\\python.exe', 'eye_blink.py'])
+    p = Popen(['python.exe', 'eye_blink.py'])
 
 
 def stop_decode():
